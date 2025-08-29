@@ -1,0 +1,227 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.main{
+    width: 100%;
+    background-color: #e21b70;
+}
+
+.one{
+    display: inline-block;
+}
+.logo{
+    width: 50px;
+    vertical-align: middle;
+    padding: 10px;
+}
+button{
+    vertical-align: middle;
+    margin: 10px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #e21b70;
+    border-color: white;
+}
+button:hover{
+    background-color: white;
+    color: black;
+}
+.four{
+    width: 1005;
+    vertical-align: middle;
+}
+.two{
+    width: 40%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.three{
+    width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cmkc{
+    font: inherit;
+    font-weight: bold;
+    border: 3px solid khaki;
+    height: 600px;
+    display: inline-block;
+    width: 100%;
+    background-color: grey;
+}
+.xsnn{
+    font-size: 42px;
+    vertical-align: middle;
+    margin: 32px;
+}
+input[type="text"]{
+    display: inline-block;
+    height: 50px;
+    width: 400px;
+}
+button[find-food]{
+    display: inline-block;
+}
+
+.box{
+    box-sizing: border-box;
+    border:3px solid navajowhite;
+    width: 600px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    vertical-align: middle;
+
+}
+.abc{
+    height: 80%;
+    width: 500px;
+    display: inline-block;
+    margin-top: 0%;
+    padding-left: 100px;
+    vertical-align: middle;
+}
+*{
+    box-sizing: border-box;
+}
+.find-food{
+    color: white;
+    width:100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.xsbh{
+    font-size: 64px;
+    margin: 0px 0px 32px;
+    font-weight: bold;
+    padding: 10px;
+}
+.dnmk{
+    height: 400px;
+    width: 90%;
+    margin-top: 32px;
+}
+.klsdmkl{
+    box-sizing: border-box;
+    width: 600px;
+    height: 300px;
+    border: 3px solid darkgrey;
+    vertical-align: middle;
+    border-radius: 10px;
+    padding: 10px;
+    align-content: center;
+    margin-left: 200px;
+    font-size: 18px;
+}
+.kasmdl{
+background-color: #e21b70;
+color: #FFFFFF;
+width: 100px;
+height: 50px;
+}
+.cndsdk{
+    height: 200px;
+    margin: 10px;
+}
+figcaption{
+    align-items: flex-end;
+    display: inline;
+}
+.amsdnkj{
+    align-items: center;
+    padding: 30px;
+    margin: 50px;
+}
+
+
+
+.skdnk{
+    height: 80%;
+    width: 400px;
+    display: inline-block;
+width: 40%;
+}
+.dnknwl{
+    font-weight: bold;
+    font-size: 48px;
+}
+.ksdml{
+    color: white;
+    background-color: #e21b70;
+    display: inline-blck;
+    text-align: left;
+    width: 40%;
+    font-size: 20px;
+}
+.askmkl{
+    display: inline-block;
+}
+.lwdkwk{
+    width: 80%;
+    background-color: #e21b70;
+    height: 500px;
+    margin: 100px;
+    padding: 50px 0px 0px 50px;
+    vertical-align: middle;
+}
+.icon{
+    width: 200px;
+    height: 50px;
+}
+
+.skldj{
+    font-weight: bold;
+    font-size: 42px;
+}
+.sdknkd{
+    width: 100%;
+    height: 400px;
+}
+.asmmd{
+    box-sizing: border-box;
+    width: 500px;
+    height: 250px;
+    border: 3px solid darkgrey;
+    vertical-align: middle;
+    border-radius: 10px;
+    padding: 0px;
+    align-content: center;
+    margin-left: 50px;
+    font-size: 18px;  
+}
+ul li{
+    text-decoration: underline;
+    display: inline;
+    padding: 50px;
+    margin: 50px;
+    vertical-align: middle;
+}
+.ksks{
+    width: 30px;
+}
+.footer-branding__logos-dh{
+    display: inline-block;
+}
+.logo-icon{
+    display: inline-block;
+}
+.end{
+    width: 100%;
+}
+.endone{
+    width: 20%;
+    display: inline-block;
+}
+.endtwo{
+    width: 20%;
+    display: inline-block;
+}
+.endthree{
+    width: 50%;
+    display: inline-block;
+}
