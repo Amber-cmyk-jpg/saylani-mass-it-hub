@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Javescript Assignment</title>
+</head>
+<body>
+    <div class="heading">
+    <h1>IF...ELSE & ELSE IF STATEMENT,</h1>
+    <h1>TESTING SET OF CONDITIONS</h1>
+    <p>Assignment # 12-13 JAVASCRIPT</p>
+    </div>
+
+    <h3 class="task">Task 1: Write a program that checks whether the input is a number, uppercase letter, or lowercase letter using ASCII codes.</h3>
+<div class="container">
+    <h2>Check Character Type</h2>
+    <input type="text" id="charInput" maxlength="1" placeholder="Enter a character">
+    <div class="buttons">
+      <button onclick="checkChar()">Check</button>
+      <button onclick="resetForm()">OK</button>
+    </div>
+    <p id="result"></p>
+  </div>
+
+  <h3 class="task">Task 2: Write a program that accept two integers and display the larger. Also show if two integers are equal.</h3>
+  <div class="box">
+    <h2>Find Larger Number</h2>
+    <input type="number" id="int1" placeholder="Enter first integer">
+    <input type="number" id="int2" placeholder="Enter second integer">
+    <div class="btn-group">
+      <button onclick="findLargerNum()">Check</button>
+      <button onclick="resetNums()">OK</button>
+    </div>
+    <p id="numResult"></p>
+  </div>
+
+  <h3 class="task">Task 3: Write a program that takes input a number from user and write whether the number is positive , negative or zero.</h3>
+<div class="num-box">
+    <h2>Check Number Sign</h2>
+    <input type="number" id="checkNum" placeholder="Enter a number">
+    <div class="num-btns">
+      <button onclick="checkSign()">Check</button>
+      <button onclick="resetSign()">OK</button>
+    </div>
+    <p id="signResult"></p>
+  </div>
+
+  <h3 class="task">Task 4: Write a program that takes a character (i.e string of length 1) and returns true if it is  a vowel, false otherwise.</h3>
+    <div class="vowel-box">
+    <h2>Check Vowel</h2>
+    <input type="text" id="vowelChar" maxlength="1" placeholder="Enter a character">
+    <div class="vowel-btns">
+      <button onclick="checkVowel()">Check</button>
+      <button onclick="resetVowel()">OK</button>
+    </div>
+    <p id="vowelResult"></p>
+  </div>
+  
+  <h3 class="task">Task 5: The task is to make a password validation program in JavaScript.</h3>
+  <p>The alert will shown as the page load.</p>
+  
+  <h3 class="task">Task 6: The if/else statement does not work. Try to fix.</h3>
+  <p>The issue in the code is with the else placement.</p>
+  <div class="boxes">
+    <h2>If / Else Greeting</h2>
+    <button class="abc" onclick="checkGreeting()">Check Greeting</button>
+    <p id="results"></p>
+  </div>
+
+  <h3 class="task">Task 7: Write a program that takes time as input from user in 24 hoursclock format like 1900 = 7pm. Implement the following case usin if, else and else if statement.</h3>
+  <div class="boxi">
+    <h2>Time Greeting Program</h2>
+    <input type="number" id="timeInput" placeholder="Enter time e.g. 1900">
+    <br>
+    <button class="xyz" onclick="checkTime()">Check Greeting</button>
+    <p id="resulti"></p>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
