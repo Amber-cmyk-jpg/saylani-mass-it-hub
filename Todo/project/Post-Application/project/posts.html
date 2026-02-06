@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Posts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/posts.css">
+</head>
+<body>
+
+<h2>Post App</h2>
+<button onclick="logout()">Logout</button>
+
+<input id="title" placeholder="Post title">
+<textarea id="description" placeholder="Post description"></textarea>
+<button onclick="createPost()">Create Post</button>
+
+<div id="posts"></div>
+
+<script type="module" src="./js/auth-guard.js"></script>
+<script type="module" src="./js/posts.js"></script>
+</body>
+</html>

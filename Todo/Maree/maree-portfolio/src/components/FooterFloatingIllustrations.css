@@ -1,0 +1,17 @@
+.floating-illustrations {
+  position: relative;
+  width: 100%;
+  height: 100vh;  /* Adjust based on footer height */
+  overflow: hidden;  /* Prevent images from overflowing */
+}
+
+.floating-illustrations img {
+  pointer-events: none;  /* Avoid accidental clicks */
+}
+
+/* Responsive: Hide or resize on mobile */
+@media (max-width: 768px) {
+  .floating-illustrations img {
+    width: 50% !important;  /* Smaller on mobile */
+  }
+}

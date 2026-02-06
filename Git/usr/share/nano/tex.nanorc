@@ -6,6 +6,6 @@ comment "%"
 
 linter chktex -v0 -q -I
 
-color green "\\.|\\[[:alpha:]]*"
+color green "\\.|\\[A-Za-z]*"
 color magenta "[{}]"
 color blue "(^|[^\])%.*"

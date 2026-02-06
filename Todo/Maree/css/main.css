@@ -1,0 +1,104 @@
+.full-screen-preview {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+body {
+    background-color: black;
+}
+.preview__header {
+    font-size: 12px;
+    height: 54px;
+    background-color: #262626;
+    z-index: 100;
+    line-height: 54px;
+    margin-bottom: 1px;
+}
+.preview__envato-logo {
+    float: left;
+    padding: 0 20px;
+}
+.preview__envato-logo a {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    text-indent: -9999px;
+    height: 18px;
+    width: 152px;
+    background: url(/assets/logos/envato_market-dd390ae….svg);
+    background-size: 152px 18px;
+}
+.preview__actions {
+    float: right;
+}
+.preview__action--close, .preview__action--buy {
+    display: inline-block;
+    padding: 0 20px;
+}
+e-btn--3d.-color-primary {
+    -webkit-box-shadow: 0 2px 0 #6f9a37;
+    box-shadow: 0 2px 0 #6f9a37;
+    position: relative;
+}
+.e-btn.-color-primary, .-color-primary.e-btn--outline, .-color-primary.e-btn--3d {
+    background-color: #82b440;
+}
+.e-btn--3d {
+    font-size: 14px;
+    padding: 5px 20px;
+    line-height: 1.5;
+    color: white;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    border: none;
+    border-radius: 4px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+element.style {
+    height: 692px;
+}
+.full-screen-preview__frame {
+    width: 100%;
+    background-color: white;
+}
+iframe {
+    border: 0;
+}
+html:not(.touch) .edgtf-custom-cursor-enabled * {
+    cursor: none !important;
+}
+.edgtf-side-menu-slide-from-right .edgtf-wrapper {
+    background-color: #fff;
+    position: relative;
+    z-index: 1000;
+    -webkit-transition: all .6s cubic-bezier(.77, 0, .175, 1);
+    -o-transition: all .6s cubic-bezier(.77,0,.175,1);
+    transition: all .6s cubic-bezier(.77, 0, .175, 1);
+}
+.edgtf-side-menu-slide-from-right .edgtf-wrapper .edgtf-cover {
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    background-color: rgba(252, 250, 246, .55);
+    -webkit-transition: opacity .2s ease-in-out, z-index .2s ease-in-out;
+    -o-transition: opacity .2s ease-in-out,z-index .2s ease-in-out;
+    transition: opacity .2s ease-in-out, z-index .2s ease-in-out;
+}
+html:not(.touch) .edgtf-custom-cursor-enabled * {
+    cursor: none !important;
+}
+@media only screen and (max-width: 1024px) {
+    body.edgtf-content-is-behind-header .edgtf-content, body.error404 .edgtf-content {
+        margin-top: -70px !important;
+    }
+}

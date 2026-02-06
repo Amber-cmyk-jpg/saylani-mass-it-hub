@@ -110,14 +110,14 @@ proc tools_exec {fullname} {
 
 	set cmdline $repo_config(guitool.$fullname.cmd)
 	if {[is_config_true "guitool.$fullname.noconsole"]} {
-		tools_run_silent [list [shellpath] -c $cmdline] \
+		tools_run_silent [list sh -c $cmdline] \
 				 [list tools_complete $fullname {}]
 	} else {
 		regsub {/} $fullname { / } title
 		set w [console::new \
 			[mc "Tool: %s" $title] \
 			[mc "Running: %s" $cmdline]]
-		console::exec $w [list [shellpath] -c $cmdline] \
+		console::exec $w [list sh -c $cmdline] \
 				 [list tools_complete $fullname $w]
 	}
 
@@ -130,7 +130,8 @@ proc tools_exec {fullname} {
 }
 
 proc tools_run_silent {cmd after} {
-	set fd [safe_open_command $cmd [list 2>@1]]
+	lappend cmd 2>@1
+	set fd [_open_stdout_stderr $cmd]
 
 	fconfigure $fd -blocking 0 -translation binary
 	fileevent $fd readable [list tools_consume_input $fd $after]

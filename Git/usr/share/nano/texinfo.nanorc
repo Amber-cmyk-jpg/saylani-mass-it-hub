@@ -12,10 +12,10 @@ comment "@c "
 color purple start="^@direntry" end="^@end direntry"
 
 # Command arguments, trailing and enclosed.
-color cyan "^@[[:lower:]]+[[:space:]]+.*"
-color lightmagenta "@([[:lower:]]+|,|H|U)\{([^}]|@\}|@[[:lower:]]+\{[^}]*\})*\}"
+color cyan "^@[a-z]+[[:space:]]+.*"
+color lightmagenta "@([a-z]+|,|H|U)\{([^}]|@\}|@[a-z]+\{[^}]*\})*\}"
 # Commands themselves.
-color yellow "^@[[:lower:]]+([[:space:]]|$)|@([[:lower:]]+|,|H|U|AA|AE|DH|L|OE?|(La)?TeX|TH)\{|\}"
+color yellow "^@[a-z]+([[:space:]]|$)|@([a-z]+|,|H|U|AA|AE|DH|L|OE?|(La)?TeX|TH)\{|\}"
 color pink "@[!"'&*./:=?@\^`{}~-]"
 
 # Special separator for headings and footings.

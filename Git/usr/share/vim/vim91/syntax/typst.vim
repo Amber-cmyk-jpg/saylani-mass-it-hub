@@ -1,17 +1,13 @@
 " Vim syntax file
 " Language:    Typst
-" Maintainer:  Luca Saccarola <github.e41mv@aleeas.com>
 " Previous Maintainer:  Gregory Anders
-" Based On:    https://github.com/kaarmu/typst.vim
+" Maintainer:  Luca Saccarola <github.e41mv@aleeas.com>
 " Last Change: 2024 Dec 09
-" 2025 Apr 16 by Vim Project (set 'cpoptions' for line continuation, #17121)
+" Based on:    https://github.com/kaarmu/typst.vim
 
 if exists('b:current_syntax')
     finish
 endif
-
-let s:cpo_save = &cpo
-set cpo&vim
 
 syntax sync fromstart
 syntax spell toplevel
@@ -473,8 +469,5 @@ highlight default typstMarkupItalic                     term=italic             
 highlight default typstMarkupBoldItalic                 term=bold,italic        cterm=bold,italic       gui=bold,italic
 
 let b:current_syntax = 'typst'
-
-let &cpo = s:cpo_save
-unlet s:cpo_save
 
 " }}}1

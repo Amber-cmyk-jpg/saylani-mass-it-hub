@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,248,247,1) 100%);
+}
+
+ul li {
+  transition: color 0.3s ease;
+}
+
+ul li:hover {
+  color: #d8a7a7;
+}
+
+.maree-portfolio {
+  padding: 120px 8%;
+  background: #fff;
+}
+
+.maree-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px 60px;
+}
+
+.maree-card {
+  text-align: center;
+  cursor: pointer;
+}
+
+.maree-img {
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  transition: 0.4s ease;
+}
+
+.maree-img img {
+  width: 100%;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.maree-card:hover img {
+  transform: scale(1.07);
+}
+
+.maree-card h3 {
+  margin-top: 28px;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 500;
+  color: #111;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .maree-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .maree-grid {
+    grid-template-columns: 1fr;
+  }
+}

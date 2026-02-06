@@ -1,0 +1,32 @@
+.hero-section {
+  position: relative;
+  text-align: center;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.hero-logo,
+.hero-text,
+.hero-btn {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.show-hero .hero-logo {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.show-hero .hero-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.show-hero .hero-btn {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}

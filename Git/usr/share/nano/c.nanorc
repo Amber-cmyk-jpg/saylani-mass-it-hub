@@ -6,9 +6,9 @@ magic "^(C|C\+\+) (source|program)"
 comment "//"
 
 # Constants.
-color brightred "\<[[:upper:]_][[:upper:][:digit:]_]*\>"
+color brightred "\<[A-Z_][0-9A-Z_]*\>"
 # Labels.
-color brightmagenta "^[[:blank:]]*[[:alpha:]_][[:alnum:]_]*:[[:blank:]]*$"
+color brightmagenta "^[[:blank:]]*[A-Z_a-z][0-9A-Z_a-z]*:[[:blank:]]*$"
 color normal ":[[:blank:]]*$"
 
 # Types and related keywords.

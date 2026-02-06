@@ -6,7 +6,7 @@
 # See http://www.ietf.org/rfc/rfc2831.txt for details
 
 package Authen::SASL::Perl::DIGEST_MD5;
-$Authen::SASL::Perl::DIGEST_MD5::VERSION = '2.1800';
+$Authen::SASL::Perl::DIGEST_MD5::VERSION = '2.1700';
 use strict;
 use warnings;
 use vars qw(@ISA $CNONCE $NONCE);
@@ -750,7 +750,7 @@ Authen::SASL::Perl::DIGEST_MD5 - Digest MD5 Authentication class
 
 =head1 VERSION
 
-version 2.1800
+version 2.1700
 
 =head1 SYNOPSIS
 

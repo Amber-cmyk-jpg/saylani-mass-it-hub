@@ -1,7 +1,7 @@
 " Vim support file to detect file types
 "
 " Maintainer:	The Vim Project <https://github.com/vim/vim>
-" Last Change:	2025 May 02
+" Last Change:	2025 Jan 08
 " Former Maintainer:	Bram Moolenaar <Bram@vim.org>
 
 " Listen very carefully, I will say this only once
@@ -51,11 +51,8 @@ func s:StarSetf(ft)
   endif
 endfunc
 
-" Vim help file, set ft explicitly, because 'modeline' might be off
-au BufNewFile,BufRead */doc/*.txt
-	\  if getline('$') =~ '\%(^\|\s\)vim:\%(.*\%(:\|\s\)\)\?\%(ft\|filetype\)=help\%(:\|\s\|$\)'
-	\|   setf help
-	\| endif
+" Vim help file
+au BufNewFile,BufRead $VIMRUNTIME/doc/*.txt	setf help
 
 " Abaqus or Trasys
 au BufNewFile,BufRead *.inp			call dist#ft#Check_inp()
@@ -77,9 +74,6 @@ au BufNewFile,BufRead *.abc			setf abc
 
 " ABEL
 au BufNewFile,BufRead *.abl			setf abel
-
-" ABNF
-au BufNewFile,BufRead *.abnf			setf abnf
 
 " AceDB
 au BufNewFile,BufRead *.wrm			setf acedb
@@ -347,11 +341,6 @@ au BufNewFile,BufRead *.capnp			setf capnp
 " Cgdb config file
 au BufNewFile,BufRead cgdbrc			setf cgdbrc
 
-" m17n database files. */m17n/* matches installed files, */.m17n.d/* matches
-" per-user config files, */m17n-db/* matches the git repo. (must be before
-" *.cs)
-au BufNewFile,BufRead */{m17n,.m17n.d,m17n-db}/*.{ali,cs,dir,flt,fst,lnm,mic,mim,tbl} setf m17ndb
-
 " C#
 au BufNewFile,BufRead *.cs,*.csx,*.cake		setf cs
 
@@ -395,12 +384,6 @@ au BufNewFile,BufRead *.cdl			setf cdl
 " Conary Recipe
 au BufNewFile,BufRead *.recipe			setf conaryrecipe
 
-" Containers config files
-au BufNewFile,BufRead */containers/containers.conf{,.d/*.conf}		setf toml
-au BufNewFile,BufRead */containers/containers.conf.modules/*.conf	setf toml
-au BufNewFile,BufRead */containers/registries.conf{,.d/*.conf}		setf toml
-au BufNewFile,BufRead */containers/storage.conf				setf toml
-
 " Corn config file
 au BufNewFile,BufRead *.corn			setf corn
 
@@ -429,15 +412,13 @@ if has("fname_case")
 	au BufNewFile,BufRead *.C,*.H if !&fileignorecase | setf cpp | endif
 endif
 
-" MS files (ixx: C++ module interface file, Microsoft Project file)
-au BufNewFile,BufRead *.ixx,*.mpp setf cpp
-
 " C++ 20 modules (clang)
 " https://clang.llvm.org/docs/StandardCPlusPlusModules.html#file-name-requirement
 au BufNewFile,BufRead *.cppm,*.ccm,*.cxxm,*.c++m setf cpp
 
-" .h files can be C, C++, Ch, Objective-C, or Objective-C++.
-" Set g_filetype_h to set a different filetype
+" .h files can be C, Ch C++, ObjC or ObjC++.
+" Set c_syntax_for_h if you want C, ch_syntax_for_h if you want Ch. ObjC is
+" detected automatically.
 au BufNewFile,BufRead *.h			call dist#ft#FTheader()
 
 " Ch (CHscript)
@@ -562,9 +543,6 @@ au BufNewFile,BufRead *.cu,*.cuh		setf cuda
 
 " Cue
 au BufNewFile,BufRead *.cue			setf cue
-
-" DAX
-au BufNewFile,BufRead *.dax			setf dax
 
 " Debian devscripts
 au BufNewFile,BufRead devscripts.conf,.devscripts	setf sh
@@ -973,9 +951,6 @@ au BufNewFile,BufRead */.config/git/attributes			setf gitattributes
 au BufNewFile,BufRead */etc/gitattributes			setf gitattributes
 au BufNewFile,BufRead .gitignore,*.git/info/exclude		setf gitignore
 au BufNewFile,BufRead */.config/git/ignore,*.prettierignore	setf gitignore
-au BufNewFile,BufRead */.config/fd/ignore,.fdignore,.ignore	setf gitignore
-au BufNewFile,BufRead .rgignore,.dockerignore,.containerignore	setf gitignore
-au BufNewFile,BufRead .npmignore,.vscodeignore			setf gitignore
 au BufNewFile,BufRead git-rebase-todo				setf gitrebase
 au BufRead,BufNewFile .gitsendemail.msg.??????			setf gitsendemail
 au BufNewFile,BufRead *.git/*
@@ -1022,14 +997,6 @@ au BufNewFile,BufRead *.gjs			setf javascript.glimmer
 
 " Gnuplot scripts
 au BufNewFile,BufRead *.gpi,*.gnuplot,.gnuplot_history	setf gnuplot
-
-" GNU Radio Companion files
-au BufNewFile,BufRead *.grc
-	\ if getline(1) =~# '<?xml' |
-	\   setf xml |
-	\ else |
-	\   setf yaml |
-	\ endif
 
 " Go (Google)
 au BufNewFile,BufRead *.go			setf go
@@ -1301,13 +1268,11 @@ au BufNewFile,BufRead *.ipynb,*.jupyterlab-settings	setf json
 au BufNewFile,BufRead *.sublime-project,*.sublime-settings,*.sublime-workspace	setf json
 
 " Other files that look like json
-au BufNewFile,BufRead .prettierrc,.firebaserc,.stylelintrc,.lintstagedrc,flake.lock,deno.lock,.swcrc	setf json
+au BufNewFile,BufRead .prettierrc,.firebaserc,.stylelintrc,.lintstagedrc,flake.lock,deno.lock	setf json
 
 " JSONC (JSON with comments)
 au BufNewFile,BufRead *.jsonc,.babelrc,.eslintrc,.jsfmtrc,bun.lock	setf jsonc
 au BufNewFile,BufRead .jshintrc,.jscsrc,.vsconfig,.hintrc,.swrc,[jt]sconfig*.json	setf jsonc
-" Visual Studio Code settings
-au BufRead,BufNewFile ~/*/{Code,VSCodium}/User/*.json setf jsonc
 
 " JSON
 au BufNewFile,BufRead *.json,*.jsonp,*.webmanifest	setf json
@@ -1322,7 +1287,7 @@ au BufNewFile,BufRead *.jsonnet,*.libsonnet	setf jsonnet
 au BufNewFile,BufRead *.jl			setf julia
 
 " Just
-au BufNewFile,BufRead \c{,*.}justfile,\c*.just setf just
+au BufNewFile,BufRead [jJ]ustfile,.justfile,*.just setf just
 
 " KAREL
 au BufNewFile,BufRead *.kl setf karel
@@ -1564,7 +1529,7 @@ au BufNewFile,BufRead *.nb,*.wl			setf mma
 au BufNewFile,BufRead *.mel			setf mel
 
 " mbsync
-au BufNewFile,BufRead *.mbsyncrc,isyncrc	setf mbsync
+au BufNewFile,BufRead .mbsyncrc			setf conf
 
 " mcmeta
 au BufNewFile,BufRead *.mcmeta			setf json
@@ -1736,7 +1701,7 @@ au BufNewFile,BufRead *.me
 	\   setf nroff |
 	\ endif
 au BufNewFile,BufRead *.tr,*.nr,*.roff,*.tmac,*.mom	setf nroff
-au BufNewFile,BufRead *.[0-9],*.[013]p,*.[1-8]x,*.3{am,perl,pm,posix,type},*.n	call dist#ft#FTnroff()
+au BufNewFile,BufRead *.[1-9]			call dist#ft#FTnroff()
 
 " Nroff or Objective C++
 au BufNewFile,BufRead *.mm			call dist#ft#FTmm()
@@ -1756,9 +1721,6 @@ au BufNewFile,BufRead *.nse			setf lua
 
 " NSIS
 au BufNewFile,BufRead *.nsi,*.nsh		setf nsis
-
-" N-Triples
-au BufNewFile,BufRead *.nt			setf ntriples
 
 " Nu
 au BufNewFile,BufRead *.nu		setf nu
@@ -1790,9 +1752,6 @@ au BufNewFile,BufRead .ondirrc			setf ondir
 " OPAM
 au BufNewFile,BufRead opam,*.opam,*.opam.template,opam.locked,*.opam.locked setf opam
 
-" OpenAL Soft config files
-au BufNewFile,BufRead .alsoftrc,alsoft.conf,alsoft.ini,alsoftrc.sample setf dosini
-
 " OpenFOAM
 au BufNewFile,BufRead [a-zA-Z0-9]*Dict\(.*\)\=,[a-zA-Z]*Properties\(.*\)\=,*Transport\(.*\),fvSchemes,fvSolution,fvConstrains,fvModels,*/constant/g,*/0\(\.orig\)\=/* call dist#ft#FTfoam()
 
@@ -1819,8 +1778,6 @@ au BufNewFile,BufRead pacman.conf,mpv.conf		setf confini
 au BufNewFile,BufRead */.aws/config,*/.aws/credentials	setf confini
 au BufNewFile,BufRead *.nmconnection			setf confini
 au BufNewFile,BufRead paru.conf				setf confini
-au BufNewFile,BufRead */{,.}gnuradio/*.conf		setf confini
-au BufNewFile,BufRead */gnuradio/conf.d/*.conf		setf confini
 
 " Pacman hooks
 au BufNewFile,BufRead *.hook
@@ -1832,7 +1789,7 @@ au BufNewFile,BufRead *.hook
 au BufNewFile,BufRead {.,}makepkg.conf			setf sh
 
 " Pacman log
-au BufRead pacman.log*					call s:StarSetf('pacmanlog')
+au BufNewFile,BufRead pacman.log			setf pacmanlog
 
 " Pam conf
 au BufNewFile,BufRead */etc/pam.conf			setf pamconf
@@ -1982,9 +1939,6 @@ au BufNewFile,BufRead	*.ps1,*.psd1,*.psm1,*.pssc	setf ps1
 au BufNewFile,BufRead	*.ps1xml			setf ps1xml
 au BufNewFile,BufRead	*.cdxml,*.psc1			setf xml
 
-" Power Query M
-au BufNewFile,BufRead *.pq			setf pq
-
 " Printcap and Termcap
 au BufNewFile,BufRead *printcap
 	\ let b:ptcap_type = "print" | setf ptcap
@@ -2071,9 +2025,9 @@ au BufNewFile,BufRead *.arr			setf pyret
 au BufNewFile,BufRead *.pyx,*.pyx+,*.pxd,*.pxi	setf pyrex
 
 " Python, Python Shell Startup and Python Stub Files
-" Quixote (Python-based web framework) and IPython
+" Quixote (Python-based web framework)
 au BufNewFile,BufRead *.py,*.pyw,.pythonstartup,.pythonrc,.python_history,.jline-jython.history	setf python
-au BufNewFile,BufRead *.ipy,*.ptl,*.pyi,SConstruct		   setf python
+au BufNewFile,BufRead *.ptl,*.pyi,SConstruct		   setf python
 
 " QL
 au BufRead,BufNewFile *.ql,*.qll		setf ql
@@ -2250,7 +2204,7 @@ au BufNewFile,BufRead *.sass			setf sass
 au BufNewFile,BufRead *.sa			call dist#ft#FTsa()
 
 " Scala
-au BufNewFile,BufRead *.scala,*.mill		setf scala
+au BufNewFile,BufRead *.scala			setf scala
 
 " SBT - Scala Build Tool
 au BufNewFile,BufRead *.sbt			setf sbt
@@ -2364,9 +2318,6 @@ au BufNewFile,BufRead .tcshrc,*.tcsh,tcsh.tcshrc,tcsh.login	call dist#ft#SetFile
 " (patterns ending in a start further below)
 au BufNewFile,BufRead .login,.cshrc,csh.cshrc,csh.login,csh.logout,*.csh,.alias  call dist#ft#CSH()
 
-" TriG
-au BufNewFile,BufRead *.trig			setf trig
-
 " Zig and Zig Object Notation (ZON)
 au BufNewFile,BufRead *.zig,*.zon		setf zig
 
@@ -2385,8 +2336,8 @@ au BufNewFile,BufRead *.zsh,*.zsh-theme,*.zunit		setf zsh
 " Salt state files
 au BufNewFile,BufRead *.sls			setf salt
 
-" Scheme, Supertux configuration, Lips.js history, Guile init file ("racket" patterns are now separate, see above)
-au BufNewFile,BufRead *.scm,*.ss,*.sld,*.stsg,*/supertux2/config,.lips_repl_history,.guile	setf scheme
+" Scheme, Supertux configuration, Lips.js history ("racket" patterns are now separate, see above)
+au BufNewFile,BufRead *.scm,*.ss,*.sld,*.stsg,*/supertux2/config,.lips_repl_history	setf scheme
 
 " Screen RC
 au BufNewFile,BufRead .screenrc,screenrc	setf screen
@@ -2536,10 +2487,6 @@ au BufNewFile,BufRead *.class
 " SMCL
 au BufNewFile,BufRead *.hlp,*.ihlp,*.smcl	setf smcl
 
-" SPA JSON
-au BufNewFile,BufRead */pipewire/*.conf		setf spajson
-au BufNewFile,BufRead */wireplumber/*.conf	setf spajson
-
 " Stored Procedures
 au BufNewFile,BufRead *.stp			setf stp
 
@@ -2638,9 +2585,6 @@ au BufRead,BufNewFile *.ttl
 " Terminfo
 au BufNewFile,BufRead *.ti			setf terminfo
 
-" Tera
-au BufRead,BufNewFile *.tera			setf tera
-
 " Terraform variables
 au BufRead,BufNewFile *.tfvars			setf terraform-vars
 
@@ -2685,13 +2629,13 @@ au BufNewFile,BufRead *.tla			setf tla
 au BufNewFile,BufRead {.,}tmux*.conf		setf tmux
 
 " TOML
-au BufNewFile,BufRead *.toml,uv.lock		setf toml
+au BufNewFile,BufRead *.toml			setf toml
 
 " TPP - Text Presentation Program
 au BufNewFile,BufRead *.tpp			setf tpp
 
 " TRACE32 Script Language
-au BufNewFile,BufRead *.cmm,*.cmmt,*.t32	setf trace32
+au BufNewFile,BufRead *.cmm,*.t32		setf trace32
 
 " Treetop
 au BufRead,BufNewFile *.treetop			setf treetop
@@ -3201,7 +3145,7 @@ au BufNewFile,BufRead */etc/sensors.d/[^.]*	call s:StarSetf('sensors')
 au BufNewFile,BufRead */etc/logcheck/*.d*/*	call s:StarSetf('logcheck')
 
 " Makefile
-au BufNewFile,BufRead [mM]akefile*		if expand('<afile>:t') !~ g:ft_ignore_pat | call dist#ft#FTmake() | endif
+au BufNewFile,BufRead [mM]akefile*		call s:StarSetf('make')
 
 " Ruby Makefile
 au BufNewFile,BufRead [rR]akefile*		call s:StarSetf('ruby')
@@ -3318,7 +3262,7 @@ au BufNewFile,BufRead XF86Config*
 	\|call s:StarSetf('xf86conf')
 
 " XKB
-au BufNewFile,BufRead */{,.}xkb/{compat,geometry,keycodes,symbols,types}/*	call s:StarSetf('xkb')
+au BufNewFile,BufRead */usr/share/X11/xkb/{compat,geometry,keycodes,symbols,types}/*	call s:StarSetf('xkb')
 
 " X11 xmodmap
 au BufNewFile,BufRead *xmodmap*			call s:StarSetf('xmodmap')
@@ -3328,15 +3272,6 @@ au BufNewFile,BufRead */etc/xinetd.d/*		call s:StarSetf('xinetd')
 
 " yum conf (close enough to dosini)
 au BufNewFile,BufRead */etc/yum.repos.d/*	call s:StarSetf('dosini')
-
-" Yarn lock
-au BufNewFile,BufRead yarn.lock			setf yaml
-
-" Zathurarc
-au BufNewFile,BufRead zathurarc			setf zathurarc
-
-" Rofi stylesheet
-au BufNewFile,BufRead *.rasi			setf rasi
 
 " Z-Shell script ending in a star
 au BufNewFile,BufRead .zsh*,.zlog*,.zcompdump*  call s:StarSetf('zsh')
@@ -3382,6 +3317,15 @@ au filetypedetect BufNewFile,BufRead,StdinReadPost *
 	\	|| getline(5) =~ '^#') |
 	\   setf FALLBACK conf |
 	\ endif
+
+" Yarn lock
+au BufNewFile,BufRead yarn.lock			setf yaml
+
+" Zathurarc
+au BufNewFile,BufRead zathurarc			setf zathurarc
+
+" Rofi stylesheet
+au BufNewFile,BufRead *.rasi			setf rasi
 
 " If the GUI is already running, may still need to install the Syntax menu.
 " Don't do it when the 'M' flag is included in 'guioptions'.

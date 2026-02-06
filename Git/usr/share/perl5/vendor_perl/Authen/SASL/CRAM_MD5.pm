@@ -3,7 +3,7 @@
 # modify it under the same terms as Perl itself.
 
 package Authen::SASL::CRAM_MD5;
-$Authen::SASL::CRAM_MD5::VERSION = '2.1800';
+$Authen::SASL::CRAM_MD5::VERSION = '2.1700';
 use strict;
 use warnings;
 
