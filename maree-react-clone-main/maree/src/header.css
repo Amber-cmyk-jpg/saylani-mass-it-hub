@@ -1,0 +1,492 @@
+/* =====================
+   FONTS
+======================== */
+@font-face {
+    font-family: 'play';
+    src: url(./Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'muli';
+    src: url(./Mulish/Mulish-Italic-VariableFont_wght.ttf);
+}
+
+/* =====================
+   BASE / ROOT
+======================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    cursor: url('./greendot.png'), auto;
+    overflow-x: hidden;
+}
+
+/* =====================
+   CARD LAYOUTS
+======================== */
+.layout,
+.layout2,
+.layout3 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 16px;
+}
+
+.layout2,
+.layout3 {
+    margin-top: 30px;
+}
+
+.main-card {
+    width: min(350px, 90vw);
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img,
+.card-img2,
+.card-img3,
+.card-img4,
+.card-img5,
+.card-img6,
+.card-img8,
+.card-img7,
+.card-img9 {
+    transition: transform 4s ease;
+    width: 100%;
+    cursor: url('./pinkdotbg.png'), auto;
+}
+
+.card-img:hover,
+.card-img2:hover,
+.card-img3:hover,
+.card-img4:hover,
+.card-img5:hover,
+.card-img6:hover,
+.card-img8:hover {
+    transform: translateY(-50%);
+}
+
+.card-img7,
+.card-img9 {
+    transition: transform 4s;
+    width: 500%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-card:hover .card-img7,
+.main-card:hover .card-img9 {
+    transform: translateX(-50%);
+}
+
+.titlee {
+    font-family: 'play';
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+}
+
+/* =====================
+   HERO 1
+======================== */
+.hero1 {
+    min-height: 100vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.texth1 {
+    max-width: 600px;
+    width: 100%;
+    z-index: 2;
+    padding: 0 16px;
+}
+
+.logotext {
+    font-family: 'play';
+    font-size: clamp(2.2rem, 8vw, 5rem);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.subText {
+    color: #777;
+    font-size: clamp(0.875rem, 2.5vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* =====================
+   HERO 1 – DECORATIVE BG IMAGES
+======================== */
+.bg {
+    position: absolute;
+    pointer-events: none;
+}
+
+.bird {
+    top: 15%;
+    right: 8%;
+    width: clamp(50px, 8vw, 100px);
+}
+
+.cloud-1 {
+    top: 20%;
+    left: 15%;
+    width: clamp(50px, 8vw, 100px);
+    z-index: 1;
+}
+
+.cloud-2 {
+    top: 20%;
+    left: 20%;
+    width: clamp(50px, 8vw, 100px);
+}
+
+.cycle {
+    bottom: 1%;
+    left: 2%;
+    width: clamp(120px, 20vw, 300px);
+}
+
+.leaf-5 {
+    bottom: 8%;
+    left: 30%;
+    width: clamp(40px, 6vw, 80px);
+}
+
+.leaf-2 {
+    bottom: 2%;
+    right: 15%;
+    width: clamp(70px, 10vw, 140px);
+}
+
+.leaf-3 {
+    bottom: 2%;
+    right: 30%;
+    width: clamp(50px, 7vw, 100px);
+}
+
+.leaf-4 {
+    bottom: 5%;
+    right: 0%;
+    width: clamp(80px, 11vw, 160px);
+}
+
+.leaf-skin {
+    bottom: 8%;
+    right: 10%;
+    width: clamp(30px, 4vw, 60px);
+}
+
+.fly {
+    top: 40%;
+    left: 22%;
+    width: clamp(30px, 4vw, 50px);
+}
+
+.dot  { bottom: 15%; right: 45%; width: 30px; }
+.dot2 { top: 15%;    left: 40%;  width: 20px; }
+.dot3 { top: 30%;    right: 8%;  width: 20px; }
+.dot4 { top: 25%;    right: 30%; width: 20px; }
+
+/* =====================
+   BUTTERFLY (LOGO)
+======================== */
+.loader-butterfly {
+    width: clamp(80px, 12vw, 150px) !important;
+    height: clamp(80px, 12vw, 150px) !important;
+}
+
+.left-wing, .right-wing {
+    transform-origin: 30px 80px;
+    transition: transform 0.4s ease;
+}
+
+.logotext:hover .left-wing {
+    animation: leaf-flap-left 0.5s ease-in-out infinite alternate;
+}
+
+.logotext:hover .right-wing {
+    animation: leaf-flap-right 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes leaf-flap-left {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(30deg); }
+}
+
+@keyframes leaf-flap-right {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-30deg); }
+}
+
+@keyframes flap-left {
+    from { transform: rotate(25deg) scaleX(1); }
+    to   { transform: rotate(0deg)  scaleX(0.8); }
+}
+
+@keyframes flap-right {
+    from { transform: rotate(0deg)   scaleX(1); }
+    to   { transform: rotate(-25deg) scaleX(0.8); }
+}
+
+/* =====================
+   HERO 3
+======================== */
+.hero3 {
+    min-height: 100vh;
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding-top: clamp(60px, 10vh, 140px);
+    padding-bottom: clamp(160px, 25vh, 260px);
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.texth3 {
+    font-family: 'muli';
+    font-size: clamp(1.1rem, 4vw, 2rem);
+    max-width: min(700px, 90vw);
+    z-index: 2;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.pers {
+    font-family: 'play';
+    font-style: italic;
+    font-weight: bolder;
+}
+
+/* =====================
+   BUTTONS
+======================== */
+.hero-btn {
+    padding: 14px 40px;
+    border: 2px solid #e8c2b0;
+    background: transparent;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.hero3-btn {
+    padding: 15px 40px;
+    border: 2px solid #e8c2b0;
+    background: transparent;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.fill-layer {
+    position: absolute;
+    background-color: #e8c2b0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.hero3-btn:hover .fill-layer {
+    width: 300%;
+    height: 600px;
+}
+
+.hero3-btn:hover .btn-text,
+.hero-btn:hover .btn-text {
+    color: white;
+}
+
+.hero3-btn:hover {
+    cursor: url('./pinkdotbg.png'), auto;
+    z-index: 10;
+}
+
+/* =====================
+   HERO 3 – DECORATIVE IMAGES
+======================== */
+.hero3 img {
+    position: absolute;
+    pointer-events: none;
+}
+
+.h3-1 { width: clamp(12px, 2vw, 20px);   top: 69%;    right: 5%; }
+.h3-2 { width: clamp(90px, 12vw, 140px); bottom: 10%; right: 1%; }
+.h3-3 { width: clamp(120px, 18vw, 200px); bottom: 10%; left: 5%; }
+.h3-4 { width: clamp(180px, 32vw, 350px); bottom: 10%; left: 20%; }
+.h3-5 { width: clamp(160px, 28vw, 500px); bottom: 0;   right: 15%; z-index: 1; }
+.h3-6 { width: clamp(28px, 4vw, 50px);   top: 55%;    left: 45%; }
+.h3-7 { width: clamp(26px, 4vw, 45px);   top: 65%;    left: 40%; }
+.h3-8 { width: clamp(26px, 4vw, 150px);  bottom: 15%; left: 45%; }
+
+/* =====================
+   LOADER
+======================== */
+.loader-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAF7F2;
+    overflow: hidden;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.loader-butterfly {
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+}
+
+.loader-text {
+    font-family: 'play';
+    font-size: clamp(2rem, 6vw, 4rem);
+    z-index: 1;
+    display: flex;
+}
+
+.letter {
+    display: inline-block;
+}
+
+/* =====================
+   AOS
+======================== */
+[data-aos] { pointer-events: none; }
+[data-aos].aos-animate { pointer-events: auto; }
+.no-aos [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* =====================
+   TABLET  (577px – 991px)
+======================== */
+@media (min-width: 577px) and (max-width: 991px) {
+    .main-card {
+        width: min(300px, 44vw);
+        height: 180px;
+    }
+
+    .layout,
+    .layout2,
+    .layout3 {
+        gap: 16px;
+        justify-content: center;
+    }
+
+    .cycle { width: 200px; }
+
+    .bird    { width: 70px; }
+    .cloud-1,
+    .cloud-2 { width: 70px; }
+    .leaf-2  { width: 100px; }
+    .leaf-3  { width: 70px; }
+    .leaf-4  { width: 110px; }
+
+    .h3-3 { width: 140px; }
+    .h3-4 { width: 200px; left: 15%; }
+    .h3-5 { width: 180px; }
+}
+
+/* =====================
+   MOBILE  (≤ 576px)
+======================== */
+@media (max-width: 576px) {
+    .main-card {
+        width: min(320px, 88vw);
+        height: 180px;
+    }
+
+    .layout,
+    .layout2,
+    .layout3 {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+    }
+
+    /* Hero 1 – scale / hide heavy decorations */
+    .cycle   { width: 120px; bottom: 1%; left: 0; }
+    .bird    { width: 50px; top: 10%; right: 4%; }
+    .cloud-1 { width: 55px; top: 12%; left: 8%; }
+    .cloud-2 { display: none; }
+    .fly     { display: none; }
+    .leaf-3  { display: none; }
+    .leaf-5  { display: none; }
+    .leaf-2  { width: 70px; }
+    .leaf-4  { width: 80px; }
+    .leaf-skin { width: 35px; }
+
+    .subText {
+        font-size: 0.875rem;
+        padding: 0 8px;
+    }
+
+    /* Hero 3 – decorative images scaled for mobile */
+    .h3-2 { width: 70px;  bottom: 8%; right: 0; }
+    .h3-3 { width: 100px; bottom: 8%; left: 2%; }
+    .h3-4 { width: 140px; bottom: 8%; left: 50%; transform: translateX(-50%); }
+    .h3-5 { width: 130px; bottom: 0;  right: 5%; }
+    .h3-6 { display: none; }
+    .h3-7 { display: none; }
+    .h3-8 { display: none; }
+
+    .texth3 {
+        font-size: clamp(1rem, 5vw, 1.4rem);
+        padding: 0 12px;
+    }
+
+    .hero3 {
+        padding-bottom: clamp(200px, 38vh, 280px);
+    }
+
+    .loader-text {
+        font-size: 2rem;
+    }
+}
+
+
